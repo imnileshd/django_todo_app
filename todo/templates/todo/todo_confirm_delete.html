@@ -1,0 +1,17 @@
+{% extends 'todo/base.html' %}
+
+{% block content %}
+    <h1 class="my-4">Delete Task</h1>
+    <div class="row">
+        <div class="col-12">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="alert alert-warning" role="alert">
+                  Are you sure to delete task: {{ object.title }}?
+                </div>
+                <input type="submit" class="btn btn-info" value="Yes" />
+                <a class="btn btn-success" href="{% url 'todo_list' %}">No</a>
+            </form>
+        </div>
+    </div>
+{% endblock %}
